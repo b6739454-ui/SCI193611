@@ -17,7 +17,7 @@ StochasticGameState = namedtuple('StochasticGameState', 'to_move, utility, board
 # MinMax Search
 
 
-def minimax_decision(state, game):
+def minmax_decision(state, game):
     """Given a state in a game, calculate the best move by searching
     forward all the way to the terminal states. [Figure 5.3]"""
 
@@ -39,7 +39,7 @@ def minimax_decision(state, game):
             v = min(v, max_value(game.result(state, a)))
         return v
 
-    # Body of minimax_decision:
+    # Body of minmax_decision:
     return max(game.actions(state), key=lambda a: min_value(game.result(state, a)))
 
 
@@ -203,7 +203,7 @@ def alpha_beta_player(game, state):
 
 
 def minmax_player(game,state):
-    return minimax_decision(state,game)
+    return minmax_decision(state,game)
 
 
 def expect_minmax_player(game, state):
